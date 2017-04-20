@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <div id="map" class="map"> </div>
+  <pickup [isPickupRequested]="isPickupRequested" (updatePickupLocation)="updatePickupLocation($event)" [map]="map" [isPinSet]="isMapIdle"
+    [CurrentDate]="UpdateCurrentDate" (change)="change.emit($event)"></pickup>
+  <available-cars [map]="map" [isPickupRequested]="isPickupRequested"></available-cars>
+  <pickup-car [pickupLocation]="currentLocation" [map]="map" [isPickupRequested]="isPickupRequested"></pickup-car>
+</div>

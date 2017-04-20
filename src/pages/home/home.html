@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button [hidden]="!isPickupRequested" (click)="cancelPickUp()">
+        <ion-icon name="arrow-back"></ion-icon> Cancel
+      </button>
+    </ion-buttons>
+    <ion-title>
+      <span [hidden]="isPickupRequested">PickMeUp</span>
+      <span [hidden]="!isPickupRequested">On the way...</span>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="map.centerLocation()">
+        <ion-icon name="navigate" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+  <div class="map-wrapper">
+    <map #map [isPickupRequested]="isPickupRequested"></map>
+  </div>
+  <div class="bottom request-controls">
+    <ion-row>
+      <ion-col width-50>
+        <button ion-button block color="light">
+          <ion-icon name="card">
+          </ion-icon>
+          Visa **32
+        </button>
+      </ion-col>
+      <ion-col width-50>
+        <button ion-button block color="light">
+          <ion-icon name="cash">
+          </ion-icon>
+          Cash
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button [hidden]="isPickupRequested" full ion-button color="default" (click)="confirmPickUp()">Request PickMeUp</button>
+        <button [hidden]="!isPickupRequested" full ion-button color="secondary" (click)="cancelPickUp()">Cancel PickMeUp</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        PICKUP TIME IS APPROXIMATELY {{timeTillArrival}} MIN
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+
+<!--
+    这个也是可以的。
+    <div #map id="map">
+  </div>-->
