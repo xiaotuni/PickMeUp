@@ -1,5 +1,5 @@
-Ionic 2 App Base
-=====================
+# PickMeUp
+ionic2 angular2 googlemap
 
 This is the base template for Ionic 2 starter apps.
 
